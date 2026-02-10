@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* N2 Auto Sandton - Luxury Dark Theme Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 40 20% 90%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 40 20% 90%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 20% 90%;
+
+    --primary: 40 20% 85%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 20% 90%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 40 30% 70%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 40 20% 85%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --cream: 40 20% 85%;
+    --cream-light: 40 30% 92%;
+    --gold: 43 74% 49%;
+    --charcoal: 0 0% 10%;
+    --charcoal-light: 0 0% 15%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, hsla(0, 0%, 0%, 0.7) 0%, hsla(0, 0%, 0%, 0.4) 50%, hsla(0, 0%, 4%, 1) 100%);
+    --gradient-card: linear-gradient(145deg, hsla(0, 0%, 10%, 1) 0%, hsla(0, 0%, 7%, 1) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40, 30%, 70%) 0%, hsl(43, 74%, 49%) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 10px 40px -10px hsla(0, 0%, 0%, 0.5);
+    --shadow-glow: 0 0 40px hsla(40, 30%, 70%, 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('@/assets/site-bg.jpg');
+    background-repeat: repeat;
+    background-size: 400px;
+    filter: blur(2px) brightness(0.5);
+    opacity: 0.4;
+    z-index: -1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+
+  .card-luxury {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hero-overlay {
+    background: var(--gradient-hero);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
